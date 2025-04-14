@@ -35,4 +35,4 @@ jobs:
       # Step 3: DOX Action - Docker Build & Push
       - name: Docker Build & Push
         run: |
-          dox docker build_push
+          dox docker build push
