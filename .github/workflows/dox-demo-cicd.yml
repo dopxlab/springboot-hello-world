@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       JDK_VERSION: 17
-      DEBUG_MODE: ${{ vars.DEBUG_MODE }}
+      DEBUG_MODE: true
       DOCKER_IMAGE_PUSH_PREFIX: ${{ vars.DOCKER_IMAGE_PUSH_PREFIX }}
       OCI_REG_USER: ${{ vars.OCI_REG_USER }}
       OCI_REG_PASSWORD: ${{ secrets.OCI_REG_PASSWORD }}    
