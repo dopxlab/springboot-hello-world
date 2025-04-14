@@ -5,16 +5,16 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-    
-env:
-  DEBUG_MODE: ${{ vars.DEBUG_MODE }}
-  OCI_REG_USER: ${{ vars.OCI_REG_USER }}
-  OCI_REG_PASSWORD: ${{ secrets.OCI_REG_PASSWORD }}
-  JDK_VERSION: 17
   
 jobs:
-  test:
+  cicd:
     runs-on: ubuntu-latest
+    env:
+      JDK_VERSION: 17
+      DEBUG_MODE: ${{ vars.DEBUG_MODE }}
+      DOCKER_IMAGE_PUSH_PREFIX: ${{ vars.DOCKER_IMAGE_PUSH_PREFIX }}
+      OCI_REG_USER: ${{ vars.OCI_REG_USER }}
+      OCI_REG_PASSWORD: ${{ secrets.OCI_REG_PASSWORD }}    
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
