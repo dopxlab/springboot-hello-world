@@ -1,0 +1,37 @@
+name: Java Build & Deployment Example - DoX-CLI Action
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+    
+env:
+  DEBUG_MODE: ${{ vars.DEBUG_MODE }}
+  OCI_REG_USER: ${{ vars.OCI_REG_USER }}
+  OCI_REG_PASSWORD: ${{ secrets.OCI_REG_PASSWORD }}
+  JDK_VERSION: 17
+  
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      # Step 1: Download and run the installation script
+      - name: Install DOX CLI
+        run: |
+          curl -s -L -o install.sh https://github.com/dopxlab/dox-cli/releases/latest/download/install.sh && bash install.sh
+          cp $HOME/.dox/bin/* /usr/local/bin/
+
+      # Step 2: DOX Action - Maven Build
+      - name: Maven Build
+        run: |
+          dox configure maven
+          mvn clean install
+
+      # Step 3: DOX Action - Docker Build & Push
+      - name: Docker Build & Push
+        run: |
+          dox docker build push
