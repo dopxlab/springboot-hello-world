@@ -36,3 +36,12 @@ jobs:
       - name: Docker Build & Push
         run: |
           dox docker build push
+
+      # Step 4: DOX Action - Kubernetes Deployment
+      - name: GitOps Deploy
+        env:
+          GITOPS_REPO: ${{ vars.GITOPS_REPO }}
+          GITOPS_PAT: ${{ secrets.GITOPS_PAT }}
+        run: |
+          dox gitops update-image-tag
+
