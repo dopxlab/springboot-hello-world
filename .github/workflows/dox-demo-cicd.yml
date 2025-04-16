@@ -11,7 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       JDK_VERSION: 17
-      FROM_IMAGE: "eclipse-temurin:17-jre-alpine"
       DEBUG_MODE: ${{ vars.DEBUG_MODE }}
       DOCKER_IMAGE_PUSH_PREFIX: ${{ vars.DOCKER_IMAGE_PUSH_PREFIX }}
       OCI_REG_USER: ${{ vars.OCI_REG_USER }}
