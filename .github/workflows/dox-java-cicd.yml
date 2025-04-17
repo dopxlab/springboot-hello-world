@@ -9,7 +9,7 @@ on:
 
 jobs:
   call-dox-java-cicd:
-    uses: github-actions/.github/workflows/dox-java-cicd.yml@main
+    uses: dopxlab/github-actions/.github/workflows/dox-java-cicd.yml@main
     with:
       oci_reg_host: '${{ env.OCI_REG_HOST }}'
       oci_reg_user: '${{ env.OCI_REG_USER }}'
