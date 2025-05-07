@@ -1,4 +1,4 @@
-name: Java Build & Deployment Example - DoX-CLI Action
+name: Basics
 
 on:
   push:
