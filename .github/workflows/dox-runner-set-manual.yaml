@@ -1,4 +1,4 @@
-name: Basics
+name: Manual Custom Runner (dox-runner-set)
 
 on: workflow_dispatch
   
