@@ -1,0 +1,13 @@
+name: Dox Test
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: dopxlab/dox-action@v1   # ← Uses published version
+      
+      - run: dox version
